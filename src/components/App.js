@@ -8,15 +8,15 @@ import "../App.css";
 // console.log(`${BASE_URL}${API_KEY}`);
 
 function App() {
-  const [nasaData, setNasaData] = useState();
+  const [nasaData, setNasaData] = useState("");
 
   useEffect(() => {
     const fetchData = () => {
       axios
         .get(`${BASE_URL}${API_KEY}`)
         .then((res) => {
-          console.log(res.data);
-          setNasaData(res);
+          setNasaData(res.data);
+          // console.log(res.data);
         })
         .catch((err) => {
           debugger;
@@ -27,14 +27,16 @@ function App() {
     fetchData();
   }, []);
 
+  // console.log(nasaData);
+
   return (
     <div className="App">
       {/* <p>
         Read through the instructions in the README.md file to build your NASA
         app! Have fun <span role="img" aria-label='go!'>🚀</span>!
       </p> */}
-      <h1>Test</h1>
-      <Card />
+      <h1>NASA</h1>
+      <Card nasaData={nasaData} />
     </div>
   );
 }
