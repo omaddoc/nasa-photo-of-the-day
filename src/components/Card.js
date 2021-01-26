@@ -3,14 +3,23 @@ import React from "react";
 // import axios from "axios";
 import Header from "./Header";
 import Description from "./Description";
+import styled from "styled-components";
 
 export default function Card(props) {
   const { nasaData } = props;
 
   return (
-    <div>
+    <StyledCard>
       <Header nasaData={nasaData} />
       <Description nasaData={nasaData} />
-    </div>
+    </StyledCard>
   );
 }
+
+const StyledCard = styled.div`
+  /* background-color: #222222; */
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  /* color: white; */
+`;

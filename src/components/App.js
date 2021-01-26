@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BASE_URL, API_KEY } from "../constants/index";
 import axios from "axios";
 import Card from "./Card";
+import styled from "styled-components";
 
 import "../App.css";
 
@@ -30,15 +31,25 @@ function App() {
   // console.log(nasaData);
 
   return (
-    <div className="App">
+    <StyledApp className="App">
       {/* <p>
         Read through the instructions in the README.md file to build your NASA
         app! Have fun <span role="img" aria-label='go!'>🚀</span>!
       </p> */}
-      <h1>NASA</h1>
+      <h1 className="nasa-title">NASA</h1>
       <Card nasaData={nasaData} />
-    </div>
+    </StyledApp>
   );
 }
 
 export default App;
+
+const StyledApp = styled.div`
+  background-color: #222222;
+  color: white;
+
+  .nasa-title {
+    margin-top: 0;
+    padding: 20px 0;
+  }
+`;
